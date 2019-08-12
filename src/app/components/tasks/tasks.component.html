@@ -1,0 +1,17 @@
+<h1>Tasks</h1>
+
+<div>
+    <app-task-form (created)="renderAdd($event)"></app-task-form>
+</div>
+
+<div *ngIf="update">
+    <app-task-form (updated)="renderUpdate($event)" [task]="update"></app-task-form>
+</div>
+
+<div *ngIf="tasks">
+    <p *ngFor="let task of tasks">
+        {{task.name}}
+        <button (click)="openUpdate(task)">Update</button>
+        <button (click)="delete(task.id)">Delete</button>
+    </p>
+</div>
